@@ -46,7 +46,7 @@ def main():
             distribution(universe)
             continue
         if len(g) != 5:
-            print('Must Enter a Five Letter Word')
+            print('Did not Enter a 5 Letter Word or Command Character.')
             continue
         p = input("What was the result of this guess?").lower()
         c = Counter(p)

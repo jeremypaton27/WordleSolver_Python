@@ -23,8 +23,15 @@ class Best:
         return expectedguesses
 
     @staticmethod
-    def topnguesses(possible, guesses, n, worst=False):
+    def topnguesses(possible, guesses, n, worst=False, toprint=True):
         scores = dict()
+        i = 0
+        print('Words Considered:', end=' ')
         for g in guesses:
             scores[g] = Best.expectedguessesremaining(g, possible)
+            i += 1
+            if toprint and i % 1000 == 0:
+                print(i, end=' ')
+        print(i)
+        print('Determining the best guesses...')
         return dict(sorted(scores.items(), key=lambda x:x[1], reverse=worst)[:n])
